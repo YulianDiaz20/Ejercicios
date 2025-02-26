@@ -5,22 +5,30 @@ public class Main {
 
         Scanner tecl = new Scanner(System.in);
 
-        int n1,n2;
-        double r1,r2;
+        int peso;
+        double estatura,total;
 
         do{
-            System.out.println("Ingrese el valor de n1");
-            n1= tecl.nextInt();
-        }while(n1<=0);
+            System.out.println("Ingrese su peso: ");
+            peso = tecl.nextInt();
+        }while(peso<=0);
         do{
-            System.out.println("Ingrese el valor de n2");
-            n2= tecl.nextInt();
-        }while(n2<=0);
-
-        r1= Math.sqrt(n1);
-        r2= Math.sqrt(n2);
-
-        System.out.println("La raiz de n1 es: "+r1);
-        System.out.println("La raiz de n2 es: "+r2);
+            System.out.println("Ingrese su estatura: ");
+            estatura = tecl.nextDouble();
+        }while(estatura<=0);
+        total = peso/(estatura*estatura);
+        if(total<=18.49){
+            System.out.println("Su IMC es: "+total+"\nClasificación: Peso Bajo");
+        }else if(total<=24.99){
+            System.out.println("Su IMC es: "+total+"\nClasificación: Peso Normal");
+        }else if(total<=29.99){
+            System.out.println("Su IMC es: "+total+"\nClasificación: Sobrepeso");
+        }else if(total<=34.99){
+            System.out.println("Su IMC es: "+total+"\nClasificación: Obesidad leve");
+        }else if(total<=39.99){
+            System.out.println("Su IMC es: "+total+"\nClasificación: Obesidad mediana");
+        }else{
+            System.out.println("Su IMC es: "+total+"\nClasificación: Obesidad Mórbida");
+        }
     }
 }
