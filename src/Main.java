@@ -4,28 +4,53 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
 
+        Scanner dato = new Scanner(System.in);
         Random ale = new Random();
+        int dinero, num, n=0, m=0;
+        String resp;
 
-        int a=0, dado1, dado2, total1=0, total2=0;
-
-        int lanzadas = ale.nextInt((100-2+1))+2;
-        System.out.println("Lanzadas: "+lanzadas+"\nDado 1 || Dado 2");
+        System.out.println("Ingresa el valor a apostar: ");
+        dinero = dato.nextInt();
         do{
-            dado1 = ale.nextInt((6-1+1))+1;
-            total1=dado1+total1;
-            dado2 = ale.nextInt((6-1+1))+1;
-            total2=dado2+total2;
-            System.out.println(" "+dado1+" || "+dado2);
-           a++;
-        }while(a<lanzadas);
-        System.out.println("TOTALES\nDado 1: "+total1+"\nDado 2: "+total2);
-        if(total1>total2){
-            System.out.println("Dado 1 es el GANADOR");
-        }else if(total2>total1){
-            System.out.println("Dado 2 es el GANADOR");
-        }else if(total1==total2){
-            System.out.println("EMPATE");
+        num = ale.nextInt((3-1+1))+1;
+        System.out.println("Número: "+num);
+        if(num == 1){
+           dinero= dinero*2;
+            System.out.println("Saldo total: "+dinero+"\nMultiplica por dos");
+           System.out.println("Deseas continuar (si||no): ");
+           resp = dato.next();
+           do{
+               m=0;
+           if(resp.toUpperCase().equals("SI")){
+               n=1;
+           }else if(resp.toUpperCase().equals("NO")){
+               n=0;
+           }else{
+               System.out.println("Por favor ingresa si||no...");
+               m=1;
+           }}while(m==1);
+        }else if(num == 2){
+            dinero = dinero/2;
+            System.out.println("Saldo total: "+dinero+"\nPierde la mitad");
+            System.out.println("Deseas continuar (si||no): ");
+            resp = dato.next();
+            do{
+                m=0;
+            if(resp.toUpperCase().equals("SI")){
+                n=1;
+            }else if(resp.toUpperCase().equals("NO")){
+                n=0;
+            }else{
+                System.out.println("Por favor ingresa si||no...");
+                m=1;
+            }}while(m==1);
+        }else if(num == 3){
+            dinero= 0;
+            System.out.println("Saldo total: "+dinero+"\nPierde todo");
+            n=0;
         }
+        }while(n==1);
+        System.out.println("Gracias por jugar, vuelve pronto....");
 
     }
 }
