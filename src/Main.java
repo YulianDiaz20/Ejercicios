@@ -16,7 +16,7 @@ public class Main {
         System.out.println("Número: "+num);
         if(num == 1){
            dinero= dinero*2;
-            System.out.println("Saldo total: "+dinero+"\nMultiplica por dos");
+            System.out.println("Multiplica por dos"+"\nSaldo total: "+dinero);
            System.out.println("Deseas continuar (si||no): ");
            resp = dato.next();
            do{
@@ -31,7 +31,7 @@ public class Main {
            }}while(m==1);
         }else if(num == 2){
             dinero = dinero/2;
-            System.out.println("Saldo total: "+dinero+"\nPierde la mitad");
+            System.out.println("Pierde la mitad"+"\nSaldo total: "+dinero);
             System.out.println("Deseas continuar (si||no): ");
             resp = dato.next();
             do{
@@ -46,11 +46,11 @@ public class Main {
             }}while(m==1);
         }else if(num == 3){
             dinero= 0;
-            System.out.println("Saldo total: "+dinero+"\nPierde todo");
+            System.out.println("Pierde todo"+"\nSaldo total: "+dinero);
             n=0;
         }
         }while(n==1);
-        System.out.println("Gracias por jugar, vuelve pronto....");
+        System.out.println("Gracias por jugar, vuelve pronto....\nTu saldo final es: "+dinero);
 
     }
 }
