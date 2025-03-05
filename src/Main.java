@@ -6,51 +6,61 @@ public class Main {
 
         Scanner dato = new Scanner(System.in);
         Random ale = new Random();
-        int dinero, num, n=0, m=0;
+        int num1, num2, m=0, n=0;
+        double numTotal;
         String resp;
-
-        System.out.println("Ingresa el valor a apostar: ");
-        dinero = dato.nextInt();
-        do{
-        num = ale.nextInt((3-1+1))+1;
-        System.out.println("Número: "+num);
-        if(num == 1){
-           dinero= dinero*2;
-            System.out.println("Multiplica por dos"+"\nSaldo total: "+dinero);
-           System.out.println("Deseas continuar (si||no): ");
-           resp = dato.next();
-           do{
-               m=0;
-           if(resp.toUpperCase().equals("SI")){
-               n=1;
-           }else if(resp.toUpperCase().equals("NO")){
-               n=0;
-           }else{
-               System.out.println("Por favor ingresa si||no...");
-               m=1;
-           }}while(m==1);
-        }else if(num == 2){
-            dinero = dinero/2;
-            System.out.println("Pierde la mitad"+"\nSaldo total: "+dinero);
-            System.out.println("Deseas continuar (si||no): ");
-            resp = dato.next();
-            do{
+        num1 = ale.nextInt((100-1+1))+1;
+        num2 = ale.nextInt((100-1+1))+1;
+        System.out.println("Números:\nPrimero: "+num1+"\nSegundo: "+num2);
+        do {
+            do {
                 m=0;
-            if(resp.toUpperCase().equals("SI")){
-                n=1;
-            }else if(resp.toUpperCase().equals("NO")){
+                System.out.println("Ingresa la operación:"
+                        + "\n(Suma(+)||Resta(-)||Multiplicación(*)||Divición(/)||Potencia(^)||Modulo(%))");
+                resp = dato.next();
+                switch (resp) {
+                    case "+" -> {
+                        numTotal = num1 + num2;
+                        System.out.println(num1 + "+" + num2 + "=" + numTotal);
+                    }
+                    case "-" -> {
+                        numTotal = num1 - num2;
+                        System.out.println(num1 + "-" + num2 + "=" + numTotal);
+                    }
+                    case "*" -> {
+                        numTotal = num1 * num2;
+                        System.out.println(num1 + "*" + num2 + "=" + numTotal);
+                    }
+                    case "/" -> {
+                        numTotal = num1 / num2;
+                        System.out.println(num1 + "/" + num2 + "=" + numTotal);
+                    }
+                    case "^" -> {
+                        numTotal = Math.pow(num1,num2);
+                        System.out.println(num1 + "^" + num2 + "=" + numTotal);
+                    }
+                    case "%" -> {
+                        numTotal = num1 % num2;
+                        System.out.println(num1 + "%" + num2 + "=" + numTotal);
+                    }
+                    default -> {
+                        m = 1;
+                    }
+                }
+            } while (m == 1);
+            do {
                 n=0;
-            }else{
-                System.out.println("Por favor ingresa si||no...");
-                m=1;
-            }}while(m==1);
-        }else if(num == 3){
-            dinero= 0;
-            System.out.println("Pierde todo"+"\nSaldo total: "+dinero);
-            n=0;
-        }
-        }while(n==1);
-        System.out.println("Gracias por jugar, vuelve pronto....\nTu saldo final es: "+dinero);
+                System.out.println("¿Quieres hacer otra operación? (si||no)");
+                resp = dato.next();
+                if(!resp.toUpperCase().equals("SI") && !resp.toUpperCase().equals("NO")){
+                    n=1;
+                    System.out.println("Porfavor ingresa una respuesta valida...");
+                }
+            }while(n==1);
+        }while(resp.toUpperCase().equals("SI"));
+        System.out.println("Gracias por la atención...");
+
+
 
     }
 }
