@@ -6,120 +6,195 @@ public class Main {
 
         Scanner dato = new Scanner(System.in);
         Random ale = new Random();
-        String opc, opc1, nombre, telefono;
-        int mouse=0, teclado=0, monitor=0, discos=0, usb=0;
-        double carrito=0,total=0, iva, totalFinal;
+
+        int opc=0,m=0;
+        double num, resultado;
         do{
-        System.out.println("======================"
-                +"\n>>>>>>TECNOLOGIA<<<<<<"
-                +"\n======================"
-                +"\n1.Mouse ----->$85.000"
-                +"\n2.Teclado --->$230.000"
-                +"\n3.Monitor --->$940.000"
-                +"\n4.Disco Duro >$220.000"
-                +"\n5.USB ------->$60.000"
-        +"\nEscribe el número del producto a comprar:");
-        opc = dato.next();
-       switch(opc){
-           case "1"->{
-              carrito=carrito+85000;
-              System.out.println("Se agrego correctamente..."
-                      +"\nCarrito: $"+carrito
-                      +"\nPara finalizar compra escribe 'Fin'"
-              +"\nPara agregar otro producto escribe 'Con'");
-              opc1 = dato.next();
-              mouse++;
-           }
-           case "2"->{
-               carrito=carrito+230000;
-               System.out.println("Se agrego correctamente..."
-                       +"\nCarrito: $"+carrito
-                       +"\nPara finalizar compra escribe 'Fin'"
-                       +"\nPara agregar otro producto escribe 'Con'");
-               opc1 = dato.next();
-               teclado++;
-           }
-           case "3"->{
-               carrito=carrito+940000;
-               System.out.println("Se agrego correctamente..."
-                       +"\nCarrito: $"+carrito
-                       +"\nPara finalizar compra escribe 'Fin'"
-                       +"\nPara agregar otro producto escribe 'Con'");
-               opc1 = dato.next();
-               monitor++;
-           }
-           case "4"->{
-               carrito=carrito+220000;
-               System.out.println("Se agrego correctamente..."
-                       +"\nCarrito: $"+carrito
-                       +"\nPara finalizar compra escribe 'Fin'"
-                       +"\nPara agregar otro producto escribe 'Con'");
-               opc1 = dato.next();
-               discos++;
-           }
-           case "5"->{
-               carrito=carrito+60000;
-               System.out.println("Se agrego correctamente..."
-                       +"\nCarrito: $"+carrito
-                       +"\nPara finalizar compra escribe 'Fin'"
-                       +"\nPara agregar otro producto escribe 'Con'");
-               opc1 = dato.next();
-               usb++;
-           }
-           default -> {
-               System.out.println("Escribe una opción valida...");
-               opc1 = "con";
-           }
-       }}while(opc1.toUpperCase().equals("CON"));
-        switch (opc1.toUpperCase()){
-            case "FIN" ->{
-                System.out.println("Porfavor ingresa tu nombre:");
-                nombre = dato.next();
-                System.out.println("Porfavor ingresa tu telefono:");
-                telefono = dato.next();
-                System.out.println(
-                        "Factura de Venta"
-                        +"\nTienda Tecnología\n"
-                        +nombre+"    "+telefono
-                                +"\nProducto:       Cantidad:    Valor UND:    Valor Total:"
-                );
-                if(mouse>0){
-                    total=mouse*85000;
-                    System.out.println(
-                                   "Mouse              "+mouse+"       $85.000         $"+total
-                    );
-                }
-                if(teclado>0){
-                    total=teclado*230000;
-                    System.out.println(
-                            "Teclado            "+teclado+"       $230.000        $"+total
-                    );
-                }
-                if(monitor>0){
-                    total=monitor*940000;
-                    System.out.println(
-                            "Monitor            "+monitor+"       $940.000        $"+total
-                    );
-                }
-                if(discos>0){
-                    total=discos*220000;
-                    System.out.println(
-                            "Discos Duros       "+discos+"       $220.000        $"+total
-                    );
-                }
-                if(usb>0){
-                    total=usb*60000;
-                    System.out.println(
-                            "USB                "+usb+"       $60.000         $"+total
-                    );
-                }
-                iva=carrito*0.16;
-                totalFinal=iva+carrito;
-                System.out.println("Total sin Iva: $"+carrito+"\nIva: $"+iva+"\nTotal a pagar: $"+totalFinal);
+        System.out.println(
+                "================\n      MENÚ      \n================"
+        +"\nCelsius a Fahrenheit->(1)\nCelsius a Kelvin->(2)\nCelsius a Rankine->(3)\nCelsius a Réaumur->(4)"
+        +"\nFahrenheit a Celsius->(5)\nFahrenheit a Kelvin->(6)\nFahrenheit a Rankine->(7)\nFahrenheit a Réaumur->(8)"
+        +"\nKelvin a Celsius->(9)\nKelvin a Fahrenheit->(10)\nKelvin a Rankine->(11)\nKelvin a Réaumur->(12)"
+        +"\nRankine a Celsius->(13)\nRankine a Fahrenheit->(14)\nRankine a Kelvin->(15)"
+        +"\nSalir->(16)");
+        opc = dato.nextInt();
+        switch (opc){
+            case 1->{
+                do {
+                    System.out.println("Ingrese los Celcius: ");
+                    num = dato.nextDouble();
+                    if(num<0){
+                        System.out.println("Porfavor ingresa un número mayor o igual a cero...");
+                    }
+                }while(num<0);
+                    resultado = (num * (9 / 5)) + 32;
+                    System.out.println("El resultado es:\nFahrenheit (°F):" + resultado);
             }
-            default -> {
+            case 2->{
+                do {
+                System.out.println("Ingrese los Celcius: ");
+                num = dato.nextDouble();
+                if(num<0){
+                    System.out.println("Porfavor ingresa un número mayor o igual a cero...");
+                }
+            }while(num<0);
+                resultado = num+273.15;
+                System.out.println("El resultado es:\nKelvin (K):"+resultado);
+            }
+            case 3->{
+                do {
+                System.out.println("Ingrese los Celcius: ");
+                num = dato.nextDouble();
+                if(num<0){
+                    System.out.println("Porfavor ingresa un número mayor o igual a cero...");
+                }
+            }while(num<0);
+                resultado = (num+273.15)*(9/5);
+                System.out.println("El resultado es:\nRankine (°R):"+resultado);
+            }
+            case 4->{
+                do {
+                System.out.println("Ingrese los Celcius: ");
+                num = dato.nextDouble();
+        if(num<0){
+            System.out.println("Porfavor ingresa un número mayor o igual a cero...");
+        }
+    }while(num<0);
+                resultado = num*(4/5);
+                System.out.println("El resultado es:\nRéaumur (°Re):"+resultado);
+            }
+            case 5->{
+                do {
+                    System.out.println("Ingrese los Fahrenheit: ");
+                    num = dato.nextDouble();
+                    if(num<0){
+                        System.out.println("Porfavor ingresa un número mayor o igual a cero...");
+                    }
+                }while(num<0);
+                resultado = (num-32)*(5/9);
+                System.out.println("El resultado es:\nCelsius (°C):"+resultado);
+            }
+            case 6->{
+                do {
+                    System.out.println("Ingrese los Fahrenheit: ");
+                    num = dato.nextDouble();
+                    if(num<0){
+                        System.out.println("Porfavor ingresa un número mayor o igual a cero...");
+                    }
+                }while(num<0);
+                resultado = ((num-32)*(5/9))+273.15;
+                System.out.println("El resultado es:\nKelvin (K):"+resultado);
 
             }
-        }
+            case 7->{
+                do {
+                    System.out.println("Ingrese los Fahrenheit: ");
+                    num = dato.nextDouble();
+                    if(num<0){
+                        System.out.println("Porfavor ingresa un número mayor o igual a cero...");
+                    }
+                }while(num<0);
+                resultado = num+459.67;
+                System.out.println("El resultado es:\nRankine (°R):"+resultado);
+
+            }
+            case 8->{
+                do {
+                    System.out.println("Ingrese los Fahrenheit: ");
+                    num = dato.nextDouble();
+                    if(num<0){
+                        System.out.println("Porfavor ingresa un número mayor o igual a cero...");
+                    }
+                }while(num<0);
+                resultado = (num-32)*(4/9);
+                System.out.println("El resultado es:\nRéaumur (°Re):"+resultado);
+
+            }
+            case 9->{
+                do {
+                    System.out.println("Ingrese los Kelvin: ");
+                    num = dato.nextDouble();
+                    if(num<0){
+                        System.out.println("Porfavor ingresa un número mayor o igual a cero...");
+                    }
+                }while(num<0);
+                resultado = num-273.15;
+                System.out.println("El resultado es:\nCelcius (°C):"+resultado);
+            }
+            case 10->{
+                do {
+                    System.out.println("Ingrese los Kelvin: ");
+                    num = dato.nextDouble();
+                    if(num<0){
+                        System.out.println("Porfavor ingresa un número mayor o igual a cero...");
+                    }
+                }while(num<0);
+                resultado = ((num-273.15)*(9/5))+32;
+                System.out.println("El resultado es:\nFahrenheit (°F):"+resultado);
+            }
+            case 11->{
+                do {
+                    System.out.println("Ingrese los Kelvin: ");
+                    num = dato.nextDouble();
+                    if(num<0){
+                        System.out.println("Porfavor ingresa un número mayor o igual a cero...");
+                    }
+                }while(num<0);
+                resultado = num*(9/5);
+                System.out.println("El resultado es:\nRankine (°R):"+resultado);
+            }
+            case 12->{
+                do {
+                    System.out.println("Ingrese los Kelvin: ");
+                    num = dato.nextDouble();
+                    if(num<0){
+                        System.out.println("Porfavor ingresa un número mayor o igual a cero...");
+                    }
+                }while(num<0);
+                resultado = (num-273.15)*(4/5);
+                System.out.println("El resultado es:\nRéaumur (°Re):"+resultado);
+            }
+            case 13->{
+                do {
+                    System.out.println("Ingrese los Rankine: ");
+                    num = dato.nextDouble();
+                    if(num<0){
+                        System.out.println("Porfavor ingresa un número mayor o igual a cero...");
+                    }
+                }while(num<0);
+                resultado = (num-491.67)*(5/9);
+                System.out.println("El resultado es:\nCelcius (°C):"+resultado);
+            }
+            case 14->{
+                do {
+                    System.out.println("Ingrese los Rankine: ");
+                    num = dato.nextDouble();
+                    if(num<0){
+                        System.out.println("Porfavor ingresa un número mayor o igual a cero...");
+                    }
+                }while(num<0);
+                resultado = num-459.67;
+                System.out.println("El resultado es:\nFahrenheit (°F):"+resultado);
+            }
+            case 15->{
+                do {
+                    System.out.println("Ingrese los Rankine: ");
+                    num = dato.nextDouble();
+                    if(num<0){
+                        System.out.println("Porfavor ingresa un número mayor o igual a cero...");
+                    }
+                }while(num<0);
+                resultado = num*(5/9);
+                System.out.println("El resultado es:\nKelvin (K):"+resultado);
+            }
+            case 16->{
+                System.out.println("Gracias por usar nuestra calculadora....");
+                m=1;
+            }
+            default -> {
+                System.out.println("Ingrese una opción valida...");
+            }
+
+        }}while(m==0);
     }
 }
