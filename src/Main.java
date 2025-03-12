@@ -80,19 +80,19 @@ public class Main {
                 totalLlamadas=l+d+c;
                 totalCosto=cLocal+cDistancia+cCelular;
                 System.out.println(
-                        "\nLocal:" +
+                        "->Local:<-" +
                         "\nMinutos: "+mLocal+
                         "\nCosto: "+cLocal+
                         "\nLlamadas: "+l+
-                        "\nLarga Distancia:" +
+                        "\n\n->Larga Distancia:<-" +
                         "\nMinutos: "+mDistancia+
                         "\nCosto: "+cDistancia+
                         "\nLlamadas: "+d+
-                        "\nCelular:" +
+                        "\n\n->Celular:<-" +
                         "\nMinutos: "+mCelular+
                         "\nCosto: "+cCelular+
                         "\nLlamadas: "+c+
-                        "\nTotal:" +
+                        "\n\n->Total:<-" +
                         "\nMinutos totales: "+totalMinutos+
                         "\nCosto totales: "+totalCosto+
                         "\nLlamadas totales: "+totalLlamadas);
